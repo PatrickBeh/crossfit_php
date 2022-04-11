@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+}
+.main--wrapper {
+    width: 70%;
+    margin: 0 auto;
+    padding: 40px;
+}
+/* ************************* Create Section CSS */
+.form__section {
+    background: #f0f0f0;
+    margin: 20px 0 40px 0;
+}
+.form__section h2 {
+    padding: 40px;
+    font-size:1.8em;
+    text-align: center;
+}
+.form__section form h3 {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 20px;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+.input label {
+    font-size: 1.2em;
+    padding: 6px 0;
+}
+.input input {
+    padding: 10px;
+    font-size: 1.2em;
+}
+.textarea {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+.textarea label {
+    font-size: 1.2em;
+    padding: 6px 0;
+}
+.textarea textarea {
+    resize: vertical;
+    padding: 10px;
+    font-size: 1.2em;
+    min-height: 120px;
+}
+.select {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+.select label {
+    font-size: 1.2em;
+    padding: 6px 0;
+}
+.select select {
+    padding: 10px;
+    font-size: 1.2em;
+}
+.button {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+.button button {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.3em;
+}
+/* ***************************** List Css */
+.list__section {
+    background: #f0f0f0;
+    margin: 40px 0;
+}
+.list__section h2 {
+    padding: 40px;
+    font-size: 1.8em;
+    text-align: center;
+}
+.list__section__wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px
+}
+.card {
+    min-height: 120px;
+    min-width: 300px;
+    text-align: center;
+    background: #dfdfdf;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card h3 {
+    padding: 4px;
+}
+.card h4 {
+    padding: 4px;
+}
+.edit__button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+}
+.edit__button button {
+    padding: 4px;
+    cursor: pointer;
+}
