@@ -92,9 +92,45 @@
         $sql->bindParam(':class_day', $class_day);
         $sql->execute();
 
-        header('location: ../dashboard/dashboard_exercise.html');
+        header('location: ../dashboard/dashboard_exercise.php');
     }
 
 
     // Create a list function to show name of coach and class type from database.
+
+
+    // Create Exercise Type
+    public function createExerciseType(array $data){
+
+        $add_exercise_type = $data['add_exercise_type'];
+
+        $sql = $this->pdo->prepare("INSERT INTO `tb_exercise_type` (exercise_type) 
+                                    VALUES(:exercise_type);");
+        $sql->bindParam(':exercise_type', $add_exercise_type);
+        $sql->execute();
+
+        header('location: ../dashboard/dashboard_user.php');
+    }
+
+    // List of exercise type
+    public function listExerciseType(){
+        $sql = $this->pdo->prepare("SELECT * FROM `tb_exercise_type`");
+        $sql->execute();
+
+        $result = array();
+        if($sql->rowCount() > 0){
+            $result = $sql->fetchAll();
+        }
+
+        return $result;
+    }
+
+    // Create Exercise function
+    public function createEquipment(){
+        $equipment_name = $data['equipment_name'];
+        $equipment_description = $data['equipment_description'];
+
+        $sql = $this->pdo->prepare("INSERT INTO `` (equipment_name, equipment_description) 
+                                    VALUES")
+    }
 }

@@ -4,10 +4,11 @@
     $pdo;
     $func = new allFunctions();  
 
-    // Here is php for create class type by add_class_type_registration
+    // Here is php for create class type
     if(isset($_POST['add_class_type_registration'])){
         $func->createClassType($_POST);
     }
+    // Here is php for create class
     if(isset($_POST['add_class_registration'])){
         $func->createClass($_POST);
     }
@@ -38,7 +39,7 @@
                 <ul>
                     <li class="item"><a href="dashboard_user.php">User Section</a></li>
                     <li class="item"><a href="#">Class Section</a></li>
-                    <li class="item"><a href="dashboard_exercise.html">Exercise Section</a></li>
+                    <li class="item"><a href="dashboard_exercise.php">Exercise Section</a></li>
                     <li class="item"><a href="dashboard_workout">Workout Section</a></li>
                 </ul>
             </div>

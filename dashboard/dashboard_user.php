@@ -1,6 +1,6 @@
 <?php
-    require('../includes/functions.inc.php');
     require('../includes/db_link.inc.php');
+    require('../includes/functions.inc.php');
     $pdo;
     $func = new allFunctions();   
     // I am trying to define account type and open a specific page. Work tomorrow on it.
@@ -39,7 +39,7 @@
                 <ul>
                     <li class="item"><a href="#">User Section</a></li>
                     <li class="item"><a href="dashboard_class.php">Class Section</a></li>
-                    <li class="item"><a href="dashboard_exercise.html">Exercise Section</a></li>
+                    <li class="item"><a href="dashboard_exercise.php">Exercise Section</a></li>
                     <li class="item"><a href="dashboard_workout.html">Workout Section</a></li>
                 </ul>
             </div>

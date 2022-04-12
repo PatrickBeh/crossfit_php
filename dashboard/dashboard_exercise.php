@@ -1,3 +1,24 @@
+<?php
+
+    require('../includes/db_link.inc.php');
+    require('../includes/functions.inc.php');
+
+    $pdo;
+    $func = new allFunctions();
+
+    if(isset($_POST['add_exercise_type_registration'])){
+        $func->createExerciseType($_POST);
+    }
+    if(isset($_POST['equipment_registration'])){
+        $func->createEquipment($_POST);
+    }
+    if(isset($_POST['exercise_registration'])){
+        $func->createExercise($_POST);
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,29 +77,19 @@
                 <h2>Exercise Type</h2>
                 <div class="list__section__wrapper">
                     <div class="card">
-                        <h3>Exercise Type name</h3>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
+                        <?php
+                            $list = $func->listExerciseType();
+                            if($list):
+                                foreach($list as $item):
+                        ?>
+                            <h3><?= $item['exercise_type'] ?></h3>
+                            <div class="edit__button">
+                                <button type="submit">Edit</button>
+                            </div>
+                        <?php endforeach;?>
+                        <?php endif;?>
                     </div>
-                    <div class="card">
-                        <h3>Exercise Type name</h3>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Exercise Type name</h3>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Exercise Type name</h3>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!-- ------------------Add Equipment-------------- -->
