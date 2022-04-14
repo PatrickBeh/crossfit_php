@@ -126,11 +126,40 @@
     }
 
     // Create Exercise function
-    public function createEquipment(){
+    public function createEquipment(array $data){
         $equipment_name = $data['equipment_name'];
         $equipment_description = $data['equipment_description'];
 
-        $sql = $this->pdo->prepare("INSERT INTO `` (equipment_name, equipment_description) 
-                                    VALUES")
+        $sql = $this->pdo->prepare("INSERT INTO `tb_equipment` (equipment_name, equipment_description) 
+                                    VALUES (:equipment_name, :equipment_description);");
+        
+        $sql->bindParam(':equipment_name', $equipment_name);
+        $sql->bindParam(':equipment_description', $equipment_description);
+        $sql->execute();
+
+        header('location: ../dashboard/dashboard_user.php');
+    }
+    // list of equipment
+    public function listEquipment(){
+        $sql = $this->pdo->prepare("SELECT * FROM `tb_equipment`");
+        $sql->execute();
+
+        $result = array();
+        if($sql->rowCount() > 0){
+            $result = $sql->fetchAll();
+        }
+
+        return $result;
+    }
+
+    // Create Exercise
+    public function createExercise(){
+        // It's missing Insert items properly here.
+        $sql = $this->pdo->prepare("INSERT INTO `tb_exercise` ()
+                                    VALUES ();");
+        $sql->bindParam('', );
+        $sql->execute();
+
+        header("location: ../dashboard/dashboard_exercise.php");
     }
 }

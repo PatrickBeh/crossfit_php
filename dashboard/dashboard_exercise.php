@@ -116,33 +116,21 @@
                 <h2>Equipments</h2>
                 <div class="list__section__wrapper">
                     <div class="card">
-                        <h3>Equipment name</h3>
-                        <p>Equipment's description</p>
+                        <?php
+                            $list = $func->listEquipment();
+                            if($list):
+                                foreach($list as $item):
+                        ?>
+                        <h3><?= $item['equipment_name'] ?></h3>
+                        <p><?= $item['equipment_description'] ?></p>
+                        <?php endforeach;?>
+                        <?php endif;?>
                         <div class="edit__button">
                             <button type="submit">Edit</button>
                         </div>
+
                     </div>
-                    <div class="card">
-                        <h3>Equipment name</h3>
-                        <p>Equipment's description</p>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Equipment name</h3>
-                        <p>Equipment's description</p>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Equipment name</h3>
-                        <p>Equipment's description</p>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!-- ------------------Add Exercise----------------- -->
@@ -156,26 +144,37 @@
                     <div class="select">
                         <label for="exercise_type">Select Exercise Type</label>
                         <select name="exercise_type">
-                            <!-- Select exercise from database -->
-                            <option value="">Select Exercise Type</option>
-                            <option value="">Crossfit</option>
-                            <option value="">Functional</option>
-                            <option value="">Weightlifting</option>
+                            <?php 
+                                    $list = $func->listExerciseType();
+                                    if($list):
+                                        foreach($list as $item):
+                            ?>
+                            <!-- How to make this section show all exercise types -->
+                            <option value="<?= $item['id'];?>"><?= $item['exercise_type'];?></option>
+                            <?php endforeach;?>
+                            <?php endif;?>
                         </select>
+                        
                     </div>
                     <div class="textarea">
                         <label for="exercise_description">Exercise Description</label>
                         <textarea name="exercise_description"></textarea>
                     </div>
                     <div class="select">
-                        <label for="equipment_type">Select Exercise Type</label>
+                        <label for="equipment_type">Select Equipment Type</label>
                         <!-- Select equipment from database -->
+                            
                         <select name="equipment_type">
-                            <option value="">Select Equipment Type</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
+                            <?php 
+                                    $list = $func->listEquipment();
+                                    if($list):
+                                        foreach($list as $item):
+                            ?>
+                            <option value="<?= $item['id'];?>"><?= $item['equipment_name'];?></option>
+                            <?php endforeach;?>
+                            <?php endif;?>
                         </select>
+                                        
                     </div>
                     <div class="button">
                         <input type="hidden" name="exercise_registration">
