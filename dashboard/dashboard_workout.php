@@ -1,3 +1,15 @@
+<?php
+    require('../includes/db_link.inc.php');
+    require('../includes/functions.inc.php');
+    $pdo;
+    $func = new allFunctions();
+
+    // Here is php for Create Workout
+    if(isset($_POST['workout_registration'])){
+        $func->createWorkout($_POST);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +34,8 @@
             <div class="links">
                 <ul>
                     <li class="item"><a href="dashboard_user.php">User Section</a></li>
-                    <li class="item"><a href="dashboard_class.html">Class Section</a></li>
-                    <li class="item"><a href="dashboard_exercise.html">Exercise Section</a></li>
+                    <li class="item"><a href="dashboard_class.php">Class Section</a></li>
+                    <li class="item"><a href="dashboard_exercise.php">Exercise Section</a></li>
                     <li class="item"><a href="#">Workout Section</a></li>
                 </ul>
             </div>

@@ -45,7 +45,7 @@
                     <li class="item"><a href="dashboard_user.php">User Section</a></li>
                     <li class="item"><a href="dashboard_class.php">Class Section</a></li>
                     <li class="item"><a href="#">Exercise Section</a></li>
-                    <li class="item"><a href="dashboard_workout.html">Workout Section</a></li>
+                    <li class="item"><a href="dashboard_workout.php">Workout Section</a></li>
                 </ul>
             </div>
         </div>
@@ -121,8 +121,8 @@
                             if($list):
                                 foreach($list as $item):
                         ?>
-                        <h3><?= $item['equipment_name'] ?></h3>
-                        <p><?= $item['equipment_description'] ?></p>
+                        <h3><?= $item['equipment_name']; ?></h3>
+                        <p><?= $item['equipment_description']; ?></p>
                         <?php endforeach;?>
                         <?php endif;?>
                         <div class="edit__button">
@@ -188,37 +188,23 @@
                 <h2>Exercises</h2>
                 <div class="list__section__wrapper">
                     <div class="card">
-                        <h3>Exercise name</h3>
-                        <h4>Exercise Type</h4>
-                        <h4>Equipment name</h4>
+                        <?php
+                            $list = $func->listExercise();
+                            if($list):
+                                foreach($list as $item):
+                        ?>
+                        <!-- How can I use tb_exercise_type_id to have this item name?????? -->
+                        <h3><?= $item['exercise_name']; ?></h3>
+                        <h4><?= $item['tb_exercise_type_id']; ?></h4>
+                        <h4><?= $item['tb_equipment_id']; ?></h4>
+
                         <div class="edit__button">
                             <button type="submit">Edit</button>
                         </div>
+                        <?php endforeach;?>
+                        <?php endif; ?>
                     </div>
-                    <div class="card">
-                        <h3>Exercise name</h3>
-                        <h4>Exercise Type</h4>
-                        <h4>Equipment name</h4>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Exercise name</h3>
-                        <h4>Exercise Type</h4>
-                        <h4>Equipment name</h4>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Exercise name</h3>
-                        <h4>Exercise Type</h4>
-                        <h4>Equipment name</h4>
-                        <div class="edit__button">
-                            <button type="submit">Edit</button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

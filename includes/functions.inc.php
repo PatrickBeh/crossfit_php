@@ -153,13 +153,54 @@
     }
 
     // Create Exercise
-    public function createExercise(){
-        // It's missing Insert items properly here.
-        $sql = $this->pdo->prepare("INSERT INTO `tb_exercise` ()
-                                    VALUES ();");
-        $sql->bindParam('', );
+    public function createExercise(array $data){
+        $exercise_name = $data['exercise_name'];
+        $exercise_type = $data['exercise_type'];
+        $exercise_description = $data['exercise_description'];
+        $equipment_type = $data['equipment_type'];
+       
+        $sql = $this->pdo->prepare("INSERT INTO `tb_exercise` (exercise_name, tb_exercise_type_id, exercise_description, tb_equipment_id)
+                                    VALUES (:exercise_name, :tb_exercise_type_id, :exercise_description, :tb_equipment_id);");
+        $sql->bindParam(':exercise_name', $exercise_name);
+        $sql->bindParam(':tb_exercise_type_id', $exercise_type);
+        $sql->bindParam(':exercise_description', $exercise_description);
+        $sql->bindParam(':tb_equipment_id', $equipment_type);
         $sql->execute();
 
         header("location: ../dashboard/dashboard_exercise.php");
     }
+    // Here will be list exercise
+    public function listExercise(){
+        $sql = $this->pdo->prepare("SELECT * FROM `tb_exercise`");
+        $sql->execute();
+
+        $result = array();
+        if($sql->rowCount() > 0){
+            $result = $sql->fetchAll();
+        }
+
+        return $result;
+    }
+    // Create Workout
+    public function createWorkout(array $data){
+        $workout_name = $data['workout_name'];
+        $workout_description = $data['workout_description'];
+        $select_exercise = $data['select_exercise'];
+        $workout_time = $data['workout_time'];
+        $workout_set_and_reps = $data['workout_set_and_reps'];
+
+        $sql = $this->pdo->prepare("INSERT INTO `tb_workout` (workout_name, workout_description, tb_exercise_id, time, set_and_reps) 
+                                    VALUES (:workout_name, :workout_description, :tb_exercise_id, :time, :set_and_reps);");
+
+        $sql->bindParam(':workout_name', $workout_name);
+        $sql->bindParam(':workout_description', $workout_description);
+        $sql->bindParam(':tb_exercise_id', $select_exercise);
+        $sql->bindParam(':time', $workout_time);
+        $sql->bindParam(':set_and_reps', $workout_set_and_reps);
+        $sql->execute();
+        
+        header('location: ../dashboard/dashboard_user.php');
+    }
+    // It's missing function list workout
+    // It's missing function to link workout with class
 }
