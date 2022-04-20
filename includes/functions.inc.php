@@ -9,9 +9,6 @@
         return parent::__construct();
     }
 
-
-    
-
     // Create User Function
     public function createUser(array $data) {
         

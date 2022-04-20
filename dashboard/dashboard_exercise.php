@@ -82,7 +82,7 @@
                             if($list):
                                 foreach($list as $item):
                         ?>
-                            <h3><?= $item['exercise_type'] ?></h3>
+                            <h3><?= $item['exercise_type']; ?></h3>
                             <div class="edit__button">
                                 <button type="submit">Edit</button>
                             </div>

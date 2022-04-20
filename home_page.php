@@ -37,11 +37,11 @@
             </div>
             <div class="navbar__form">
                 <!-- Login section -->
-                <form action="dashboard/dashboard_user.php" method="post">
+                <form action="includes/dashboard_user.inc.php" method="post">
                     <input type="hidden" name="action" value="encrypto">
                     <input type="text" name="username" placeholder="Enter Username">
                     <input type="password" name="pwd" placeholder="Enter Password">
-                    <button type="submit">Login</button>
+                    <button type="submit" name="btn_login">Login</button>
                 </form>
             </div>
     </header>
