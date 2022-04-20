@@ -1,40 +1,46 @@
 <?php 
     require('db_link.inc.php');
     require('functions.inc.php');
-
-    session_start();
-    if(isset($_SESSION["user_login"])){
-        header("location: ../dashboard/dashboard_user.php");
-    }
-    if(isset($_REQUEST['btn_login'])){
-        $username = strip_tags($_REQUEST['username']);
-        $password = strip_tags($_REQUEST['pwd']);
+    $func = new allFunctions();   
+    
+    if(isset($_POST['btn_login'])){
+        
+        $username = strip_tags($_POST['username']);
+        $password = strip_tags($_POST['pwd']);
 
         if(empty($username)){
+            
             $errorMsg[] = "Please enter username";
         } else if(empty($password)){
+            
             $errorMsg[] = "Please enter password";
         } else {
-            try {
+            try {                
                 $select_stmt=$pdo->prepare("SELECT * FROM tb_user WHERE username=:username");
-                // Not sure if I need an array at the next line
-                $select_stmt->execute(array(':username'=>$username));
+                $select_stmt->bindParam(':username', $username);
+                $select_stmt->execute();
                 $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
 
                 if($select_stmt->rowCount() > 0){
                     if($username==$row["username"]){
-                        if(password_verify($password, $row["password"])){
-                            $_SESSION['user_login'] = $row["user_id"];
+                        
+                        if($func->password_verify($password, $row["password"])){
+                            
+                            $_SESSION['user_login'] = $row["id"];
                             $loginMsg = "Successfully Login";
-                            header("refresh:2; ../dashboard/dashboard_user.php");
+                            header("location: ../dashboard/dashboard_user.php");
                         } else {
                             $errorMsg[] = "wrong password";
+                            header("location: ../home_page.php");
+                            // Create alert to show the error message
                         }
                     } else {
                         $errorMsg[] = "wrong username";
+                        header("location: ../home_page.php");
                     }
                 } else {
                     $errorMsg[] = "wrong username";
+                    header("location: ../home_page.php");
                 }
             }
             catch(PDOException $e){

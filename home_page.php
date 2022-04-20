@@ -1,9 +1,13 @@
 <?php
+    session_start();
     include_once('includes/db_link.inc.php');
 
     $pdo;
     if($pdo){
         echo '<!-- Connection established -->';
+    }
+    if(isset($_SESSION["user_login"]) && empty($_SESSION["user_login"])){
+        header("location: ../home_page.php");
     }
 ?>
 <!DOCTYPE html>

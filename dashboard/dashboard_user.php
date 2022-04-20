@@ -6,6 +6,10 @@
     // I am trying to define account type and open a specific page. Work tomorrow on it.
     // $account_type = validate_user($db_connect,$username, $password);
 
+    if(isset($_SESSION["user_login"]) && !empty($_SESSION["user_login"])){
+        echo 'cheguei aqui'; die();
+        header("location: ../home_page.php");
+    }
 
     // Here is php for Create User by user_registration
     if(isset($_POST['user_registration'])){

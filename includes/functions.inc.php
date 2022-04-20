@@ -9,6 +9,15 @@
         return parent::__construct();
     }
 
+    // Password Verify
+    public function password_verify($password_user, $password_db){
+        $pwd = md5($password_user);
+        if($pwd == $password_db){
+            return true;
+        } 
+        return false;
+    }
+
     // Create User Function
     public function createUser(array $data) {
         
@@ -167,6 +176,7 @@
         header("location: ../dashboard/dashboard_exercise.php");
     }
     // Here will be list exercise
+    // Use join mysql to select aLL informations from database
     public function listExercise(){
         $sql = $this->pdo->prepare("SELECT * FROM `tb_exercise`");
         $sql->execute();
