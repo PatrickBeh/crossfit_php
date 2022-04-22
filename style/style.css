@@ -57,6 +57,14 @@ ul a {
     color: #ffffff;
     font-size: 1.4rem  ;
 }
+.welcome__user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.welcome__user h1 {
+    color: #ffffff; 
+}
 /* Navbar Login */
 .navbar__form {
     height: 60px;

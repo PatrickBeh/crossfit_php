@@ -13,7 +13,7 @@
         $func->createClass($_POST);
     }
 ?>
-
+<!-- I'm not using this dashboard  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +40,7 @@
                     <li class="item"><a href="dashboard_user.php">User Section</a></li>
                     <li class="item"><a href="#">Class Section</a></li>
                     <li class="item"><a href="dashboard_exercise.php">Exercise Section</a></li>
-                    <li class="item"><a href="dashboard_workout">Workout Section</a></li>
+                    <li class="item"><a href="dashboard_workout.php">Workout Section</a></li>
                 </ul>
             </div>
         </div>

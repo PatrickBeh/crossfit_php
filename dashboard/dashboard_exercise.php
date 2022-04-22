@@ -43,7 +43,6 @@
             <div class="links">
                 <ul>
                     <li class="item"><a href="dashboard_user.php">User Section</a></li>
-                    <li class="item"><a href="dashboard_class.php">Class Section</a></li>
                     <li class="item"><a href="#">Exercise Section</a></li>
                     <li class="item"><a href="dashboard_workout.php">Workout Section</a></li>
                 </ul>
@@ -149,7 +148,7 @@
                                     if($list):
                                         foreach($list as $item):
                             ?>
-                            <!-- How to make this section show all exercise types -->
+                            <!-- How to make this section show all exercise types --> <!-- It's working -->
                             <option value="<?= $item['id'];?>"><?= $item['exercise_type'];?></option>
                             <?php endforeach;?>
                             <?php endif;?>
@@ -195,8 +194,8 @@
                         ?>
                         <!-- How can I use tb_exercise_type_id to have this item name?????? -->
                         <h3><?= $item['exercise_name']; ?></h3>
-                        <h4><?= $item['tb_exercise_type_id']; ?></h4>
-                        <h4><?= $item['tb_equipment_id']; ?></h4>
+                        <h4><?= $item['exercise_type']; ?></h4>
+                        <h4><?= $item['equipment_name']; ?></h4>
 
                         <div class="edit__button">
                             <button type="submit">Edit</button>

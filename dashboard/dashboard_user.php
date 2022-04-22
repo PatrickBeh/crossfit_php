@@ -24,7 +24,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard User</title>
+    <title>Dashboard User's Control</title>
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/style_dashboard.css">
 </head>
@@ -42,9 +42,8 @@
             <div class="links">
                 <ul>
                     <li class="item"><a href="#">User Section</a></li>
-                    <li class="item"><a href="dashboard_class.php">Class Section</a></li>
                     <li class="item"><a href="dashboard_exercise.php">Exercise Section</a></li>
-                    <li class="item"><a href="dashboard_workout.html">Workout Section</a></li>
+                    <li class="item"><a href="dashboard_workout.php">Workout Section</a></li>
                 </ul>
             </div>
         </div>
